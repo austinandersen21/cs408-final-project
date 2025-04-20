@@ -28,4 +28,4 @@
     feature.</p>
 
 <h2>Website wireframe</h2>
-![wireframe](webdesign.png)
+<img src="webdesign.png" alt="wireframe">
