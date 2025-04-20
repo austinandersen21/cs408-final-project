@@ -26,3 +26,6 @@
   <h2>Additional Features</h2>
   <p>As I said, I would like to make sure that I can get the check-in and check-out feature to work. If I am able to, I want to add the bulk checkout feature, a feature to create a personalized invoice, and a search
     feature.</p>
+
+<h2>Website wireframe</h2>
+![wireframe](webdesign.png)
