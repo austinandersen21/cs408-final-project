@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello World!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/newReservation.css">
+      </head>
+
+      <body>
+
+        <div id="header">
+          <h1>New Reservation</h1>
+        </div>
+
+        <div id="buttonStuffs">
+          <div id="buttonTable">
+            <div class="buttonRow">
+              <input type="text" id="firstName" class="inputBox" name="firstName" placeholder="First Name">
+              <input type="text" id="lastName" class="inputBox" name="lastName" placeholder="Last Name">
+              <input type="text" id="city" class="inputBox" name="city" placeholder="City">
+            </div>
+            <div class="buttonRow">
+              <input type="text" id="email" class="inputBox" name="email" placeholder="Email">
+              <input type="text" id="phoneNumber" class="inputBox" name="phoneNumber" placeholder="Phone Number">
+            
+              <select id="roomSelector">
+                <option value="defaultOption" selected>Room Type</option>
+                <option value="Single King">Single King</option>
+                <option value="Double Queen">Double Queen</option>
+                <option value="Suite">Suite</option>
+                <option value="Presidential Suite">Presidential Suite</option>
+              </select>
+            </div>
+            <div class="buttonRow">
+              <div id="startDateBox" class="dateBox">
+                <p>Arrival</p>
+                <input type="date" class="dateSelector" id="startDate" name="startDate">
+              </div>
+              <div id="endDateBox" class="dateBox">
+                <p>Departure</p>
+                <input type="date" class="dateSelector" id="endDate" name="endDate">
+              </div>
+              
+              
+            </div>
+            <div class="buttonRow">
+              <button type="submit" onclick="handleSubmit()" id="bookResButton">Book</button>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function collectData() {
+            let fName = document.getElementById("firstName");
+            let lName = document.getElementById("lastName");
+            let city = document.getElementById("city");
+            let email = document.getElementById("email");
+            let phoneNumber = document.getElementById("phoneNumber");
+            let roomType = document.getElementById("roomSelector").value;
+            let arrivalDate = document.getElementById("startDate");
+            let departureDate = document.getElementById("endDate");
+
+            return {fName, lName, city, email, phoneNumber, roomType, arrivalDate, departureDate};
+          };
+          
+          function handleSubmit() {
+            const data = collectDate()
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("PUT", "https://w9yhsqyg5c.execute-api.us-east-2.amazonaws.com/hotel");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.sent(JSON.stringify({
+              ""
+            }));
+          }
+
+        </script>
+      </body>
+</html>

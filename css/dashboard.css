@@ -1,0 +1,147 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.header {
+  white-space: nowrap;
+}
+
+.hamburger {
+  padding: -10px 5px 0px 0px;
+}
+
+.title {
+  text-align: center;
+  background-color: rgb(252, 27, 27);
+  color: rgb(255, 255, 255);
+  opacity: 0.80;
+  padding-top: 30pt;
+  padding-bottom: 30pt;
+}
+
+.search {
+  background-color: rgb(214, 214, 214);
+  padding: 15px 10px 15px 10px;
+  margin-top: -21px;
+}
+
+#searchbar {
+  border-radius: 0px 10px 10px 0px;
+  border-width: 2px;
+  border-color: grey;
+  padding: 5px 30% 5px 10px;
+  margin-left: -5px;
+}
+
+#suggestions {
+  border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    background: white;
+    z-index: 1000;
+}
+
+.suggestion-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown {
+  margin-left: 10px;
+  padding: 5px 2% 5px 0px;
+  border-color: grey;
+}
+
+.search_drop_down {
+  padding: 5px 0px 5px 0px;
+  border-radius: 10px 0px 0px 10px;
+  border-width: 2px;
+  border-color: grey;
+}
+
+.otherButtons {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 25%;
+  margin-left: 30pt;
+}
+
+.dateDropdown {
+  padding: 5pt;
+}
+
+#newButton {
+  color: rgb(0, 176, 0);
+  background-color: white;
+  border-style: dashed;
+  border-color: rgb(0, 176, 0);
+  padding: 5pt 20pt;
+}
+
+.dateSelector {
+  padding: 4px 0pt;
+}
+
+.buttonSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  background-image: url('/img/background.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  justify-content: flex-start;
+}
+
+.flexRow {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30pt 100pt;
+}
+
+.flexRow label {
+  color: white;
+  background-color: grey;
+  font-size: 150%;
+  padding: 5pt;
+  margin-right: 75pt;
+  text-align: center;
+}
+
+.dashboardButton {
+  color: white;
+  padding: 5% 6%;
+  flex: 1;
+  margin: 0.5rem;
+  max-width: 300px;
+  border: 0pt;
+}
+
+#arrivalsButton, #vacantReadyButton{
+  background-color: rgb(0, 207, 0);
+}
+
+#stayoversButton, #occupiedButton {
+  background-color: rgb(61, 174, 255);
+}
+
+#departuresButton, #vacantNotReadyButton{
+  background-color: rgb(252, 27, 27);
+}
+
+#VIPButton {
+  background-color: rgb(255, 209, 24);
+}
+
+#oooButton {
+  background-color: rgb(170, 170, 170);
+}

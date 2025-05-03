@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello World!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/staycard.css">
+      </head>
+
+      <body>
+
+            <header>
+                <button class="dashboardButton" type="button"><strong><< DASHBOARD</strong></button>
+                <h1>Placeholder</h1>
+            </header>
+
+            <script>
+
+                function getGuestInformation() {
+                    const reservationNumber = getSearchParameters();
+                    console.log(reservationNumber)
+                }
+
+                function getSearchParameters() {
+                    const searchString = window.location.search;
+                    const urlParams = new URLSearchParams(searchString);
+                    const reservationNumber = urlParams.get('resNumber');
+                    return reservationNumber;
+                }
+
+            </script>
+
+
+
+
+      </body>
+</html>
