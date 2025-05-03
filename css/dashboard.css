@@ -84,6 +84,10 @@ body {
   padding: 5pt 20pt;
 }
 
+#newButton:hover {
+  cursor: pointer;
+}
+
 .dateSelector {
   padding: 4px 0pt;
 }
@@ -130,18 +134,52 @@ body {
   background-color: rgb(0, 207, 0);
 }
 
+#arrivalsButton:hover {
+  cursor: pointer;
+}
+
+#vacantReadyButton:hover {
+  cursor: pointer;
+}
+
 #stayoversButton, #occupiedButton {
   background-color: rgb(61, 174, 255);
+}
+
+#stayoversButton:hover {
+  cursor: pointer;
+}
+
+#occupiedButton:hover {
+  cursor: pointer;
 }
 
 #departuresButton, #vacantNotReadyButton{
   background-color: rgb(252, 27, 27);
 }
 
+#departuresButton:hover {
+  cursor: pointer;
+}
+
+#vacantNotReadyButton {
+  cursor: pointer;
+}
+
 #VIPButton {
   background-color: rgb(255, 209, 24);
+}
+
+#VIPButton:hover {
+  cursor: pointer;
 }
 
 #oooButton {
   background-color: rgb(170, 170, 170);
 }
+
+#oooButton:hover {
+  cursor: pointer;
+}
+
+

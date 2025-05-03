@@ -10,23 +10,38 @@
 
       <body>
 
-            <header>
-                <button class="dashboardButton" type="button"><strong><< DASHBOARD</strong></button>
-                <h1>Placeholder</h1>
-            </header>
+            <div class="header">
+                <h1 id="title">Staycard</h1>
+                <button type="submit" onclick="history.back()" id="dashboardButton"><strong><<< Dashboard</strong></button>
+            </div>
 
+            <div class="guestInformation">
+                <p id="guestInfo">
+    
+                </p>
+                <button type="submit" onclick="deleteGuest()" id="deleteButton">Delete Guest</button>
+            </div>
+
+            
             <script>
 
-                function getGuestInformation() {
-                    const reservationNumber = getSearchParameters();
-                    console.log(reservationNumber)
-                }
+                const guestId = new URLSearchParams(window.location.search).get("resNumber");
 
-                function getSearchParameters() {
-                    const searchString = window.location.search;
-                    const urlParams = new URLSearchParams(searchString);
-                    const reservationNumber = urlParams.get('resNumber');
-                    return reservationNumber;
+
+                function deleteGuest() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("DELETE", `https://w9yhsqyg5c.execute-api.us-east-2.amazonaws.com/hotel/${guestId}`);
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.send();
+                    
+                    xhr.onload = function () {
+                        if (xhr.status === 200 || xhr.status === 204) {
+                            alert("Guest deleted!");
+                            history.back();
+                        } else {
+                            alert("Failed to delete guest.");
+                        }
+                    };
                 }
 
             </script>

@@ -97,24 +97,33 @@
   <div class="buttonSection">
     <div class="flexRow">
       <label><strong>Guests</strong></label>
-      <button type="button" class="dashboardButton" id="arrivalsButton"><strong>ARRIVALS</strong></button>
-      <button type="button" class="dashboardButton" id="stayoversButton"><strong>STAYOVERS</strong></button>
-      <button type="button" class="dashboardButton" id="departuresButton"><strong>DEPARTURES</strong></button>
-      <button type="button" class="dashboardButton" id="VIPButton"><strong>VIP</strong></button>  
+      <button type="button" class="dashboardButton" id="arrivalsButton" onclick="openSection(this)"><strong>ARRIVALS</strong></button>
+      <button type="button" class="dashboardButton" id="stayoversButton" onclick="openSection(this)"><strong>STAYOVERS</strong></button>
+      <button type="button" class="dashboardButton" id="departuresButton" onclick="openSection(this)"><strong>DEPARTURES</strong></button>
+      <button type="button" class="dashboardButton" id="VIPButton" onclick="openSection(this)"><strong>VIP</strong></button>  
     </div>
     <div class="flexRow">
 
     </div>
     <div class="flexRow">
       <label><strong>Rooms</strong></label>
-      <button type="button" class="dashboardButton" id="occupiedButton"><strong>OCCUPIED ROOMS</strong></button>
-      <button type="button" class="dashboardButton" id="vacantReadyButton"><strong>VACANT (READY)</strong></button>
-      <button type="button" class="dashboardButton" id="vacantNotReadyButton"><strong>VACANT (NOT READY)</strong></button>
-      <button type="button" class="dashboardButton" id="oooButton"><strong>OUT OF ORDER/SERVICE</strong></button>  
+      <button type="button" class="dashboardButton" id="occupiedButton" onclick="openSection(this)"><strong>OCCUPIED ROOMS</strong></button>
+      <button type="button" class="dashboardButton" id="vacantReadyButton" onclick="openSection(this)"><strong>VACANT (READY)</strong></button>
+      <button type="button" class="dashboardButton" id="vacantNotReadyButton" onclick="openSection(this)"><strong>VACANT (NOT READY)</strong></button>
+      <button type="button" class="dashboardButton" id="oooButton" onclick="openSection(this)"><strong>OUT OF ORDER/SERVICE</strong></button>  
     </div>
   </div>
 
   <script type="module" src="js/main.js"></script>
+
+  <script>
+
+    function openSection(element) {
+      let pageTitle = element.id;
+      window.location.href = `list.html?pageTitle=${encodeURIComponent(pageTitle)}`;
+    }
+
+  </script>
 </body>
 
 </html>

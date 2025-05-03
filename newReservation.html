@@ -12,6 +12,9 @@
 
         <div id="header">
           <h1>New Reservation</h1>
+          <a href="dashboard.html">
+            <button type="submit" onclick="" id="dashboardButton"><strong><<< Dashboard</strong></button>
+          </a>
         </div>
 
         <div id="buttonStuffs">
@@ -53,27 +56,50 @@
 
         <script>
           function collectData() {
-            let fName = document.getElementById("firstName");
-            let lName = document.getElementById("lastName");
-            let city = document.getElementById("city");
-            let email = document.getElementById("email");
-            let phoneNumber = document.getElementById("phoneNumber");
+            let fName = document.getElementById("firstName").value;
+            let lName = document.getElementById("lastName").value;
+            let city = document.getElementById("city").value;
+            let email = document.getElementById("email").value;
+            let phoneNumber = document.getElementById("phoneNumber").value;
             let roomType = document.getElementById("roomSelector").value;
-            let arrivalDate = document.getElementById("startDate");
-            let departureDate = document.getElementById("endDate");
+            let arrivalDate = document.getElementById("startDate").value;
+            let departureDate = document.getElementById("endDate").value;
 
             return {fName, lName, city, email, phoneNumber, roomType, arrivalDate, departureDate};
           };
           
           function handleSubmit() {
-            const data = collectDate()
+            const data = collectData();
+            const resNumber = localStorage.getItem("reservations");
+            incrementReservationNumber();
 
             let xhr = new XMLHttpRequest();
             xhr.open("PUT", "https://w9yhsqyg5c.execute-api.us-east-2.amazonaws.com/hotel");
             xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.sent(JSON.stringify({
-              ""
+            
+            xhr.send(JSON.stringify({
+              "resNumber": resNumber,
+              "firstName": data.fName,
+              "lastName": data.lName,
+              "city": data.city,
+              "email": data.email,
+              "phoneNumber": data.phoneNumber,
+              "roomType": data.roomType,
+              "arrival": data.arrivalDate,
+              "departure": data.departureDate
             }));
+
+            window.location.href = `staycard.html?resNumber=${encodeURIComponent(resNumber)}`;
+          }
+
+          if(localStorage.getItem("reservations") === null) {
+            localStorage.setItem("reservations", 100500);
+          }
+
+          function incrementReservationNumber() {
+            let count = parseInt(localStorage.getItem("reservations"));
+            count++;
+            localStorage.setItem("reservations", count);
           }
 
         </script>

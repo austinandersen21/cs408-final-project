@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello World!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/list.css">
+      </head>
+
+      <body>
+
+        <div class="header">
+            <h1 id="title"></h1>
+            <a href="dashboard.html">
+                <button type="submit" onclick="" id="dashboardButton"><strong><<< Dashboard</strong></button>
+            </a>
+        </div>
+
+        <div class="listedItems">
+            <p id="guestInfo">
+
+            </p>
+        </div>
+
+
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const title = urlParams.get("pageTitle");
+            console.log("Working")
+            console.log(title)
+            if (title === "arrivalsButton") {
+                document.getElementById("title").innerHTML = "Arrivals";
+                loadData();
+            } else if (title === "stayoversButton") {
+                document.getElementById("title").innerHTML = "Stayovers";
+                loadData();
+            } else if (title === "departuresButton") {
+                document.getElementById("title").innerHTML = "Departures";
+                loadData();
+            } else if (title === "VIPButton") {
+                document.getElementById("title").innerHTML = "VIPs";
+                loadData();
+            } else if (title === "occupiedButton") {
+                document.getElementById("title").innerHTML = "Occupied Rooms";
+                loadData();
+            } else if (title === "vacantReadyButton") {
+                document.getElementById("title").innerHTML = "Vacant Rooms (READY)";
+                loadData();
+            } else if (title === "vacantNotReadyButton") {
+                document.getElementById("title").innerHTML = "Vacant Rooms (NOT READY)";
+                loadData();
+            } else if (title === "oooButton") {
+                document.getElementById("title").innerHTML = "Out of Order Rooms";
+                loadData();
+            } else {
+                document.getElementById("title").innerHTML = "ERROR";
+            }
+
+            function loadData() {
+                const container = document.getElementById("guestInfo");
+
+                const xhr = new XMLHttpRequest();
+                xhr.addEventListener("load", function () {
+                    // Parse the JSON response
+                    const data = JSON.parse(xhr.response);
+
+                    // Clear previous content
+                    container.innerHTML = "";
+
+                    // Loop through each guest
+                    data.forEach(guest => {
+                        // Create a clickable button or div
+                        const button = document.createElement("button");
+                        button.className = "guest-button";
+                        button.innerHTML = `
+                            <strong>${guest.firstName} ${guest.lastName}</strong><br>
+                            Room Type: ${guest.roomType}<br>
+                            Arrival: ${guest.arrivalDate}<br>
+                            Departure: ${guest.departureDate}
+                        `;
+
+                        // Link to staycard.html with a unique guest ID
+                        button.onclick = function () {
+                            window.location.href = `staycard.html?resNumber=${encodeURIComponent(guest.resNumber)}`;
+                        };
+
+                        container.appendChild(button);
+                    });
+                });
+
+                xhr.open("GET", "https://w9yhsqyg5c.execute-api.us-east-2.amazonaws.com/hotel");
+                xhr.send();
+            }
+
+        </script>
+
+      </body>
+</html>
