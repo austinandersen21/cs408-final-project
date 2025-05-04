@@ -32,10 +32,54 @@ body {
     padding-bottom: 35%;
 }
 
+h1 {
+    font-size: 40pt;
+}
+
+.firstRow {
+    display: inline-block;
+}
+
+#firstName {
+    background-color: rgb(196, 196, 196);
+    padding: 10px 500px 10px 10px;;
+}
+
+#resNumber {
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+hr {
+    margin-top: 20px;
+}
+
+#arrival {
+    display: inline-block;
+    background-color: rgb(0, 176, 0);
+    color: white;
+    padding: 10px;
+}
+
+#departure {
+    display: inline-block;
+    background-color: rgb(252, 27, 27);
+    color: white;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.line {
+    border: none;
+    height: 2px;
+    background-color: black;
+}
+
 #deleteButton {
     border-style: none;
     background-color: rgb(252, 27, 27);
     padding: 30px 50px 30px 50px;
+    margin-top: 20px;
     color: white;
     font-size: 18px;
 }

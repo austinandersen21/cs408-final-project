@@ -8,16 +8,28 @@
         <link rel="stylesheet" href="css/staycard.css">
       </head>
 
-      <body>
+      <body onload="retrieveGuest()">
 
             <div class="header">
                 <h1 id="title">Staycard</h1>
-                <button type="submit" onclick="history.back()" id="dashboardButton"><strong><<< Dashboard</strong></button>
+                <button type="submit" onclick="window.location.href='dashboard.html'" id="dashboardButton"><strong><<< Dashboard</strong></button>
             </div>
 
             <div class="guestInformation">
                 <p id="guestInfo">
-    
+                    <div class="firstRow">
+                        <h1 class="field" id="firstName"></h1>
+                        <span class="field" id="resNumber"></span>
+                    </div>
+                    <hr class="line"></hr>
+                    <div class="secondRow"><p class="field" id="city"></p>
+                        <p class="field" id="email"></p>
+                        <p class="field" id="phoneNumber"></p>
+                    </div>
+                    <div class="thirdRow">
+                        <p class="field" id="arrival"></p>
+                        <p class="field" id="departure"></p>
+                    </div>
                 </p>
                 <button type="submit" onclick="deleteGuest()" id="deleteButton">Delete Guest</button>
             </div>
@@ -29,6 +41,31 @@
                 const guestId = urlParams.get("resNumber");
                 const previousTitle = urlParams.get("previousPage");
 
+                function retrieveGuest() {
+                    let fNameField = document.getElementById("firstName");
+                    let cityField = document.getElementById("city");
+                    let resNumberField = document.getElementById("resNumber");
+                    let arrivalField = document.getElementById("arrival");
+                    let departureField = document.getElementById("departure");
+                    let emailField = document.getElementById("email");
+                    let phoneNumberField = document.getElementById("phoneNumber");
+
+                    let xhr = new XMLHttpRequest();
+                    xhr.addEventListener("load", function () {
+                        const guest = JSON.parse(xhr.responseText);
+                        fNameField.innerText = guest.firstName + " " + guest.lastName;
+                        cityField.innerText = "City: " + guest.city;
+                        resNumberField.innerText = "Reservation #:  " + guest.resNumber;
+                        arrivalField.innerText = "Arrival: " + guest.arrival;
+                        departureField.innerText = "Departure: " + guest.departure;
+                        emailField.innerText = "Email: " + guest.email;
+                        phoneNumberField.innerText = " Phone Number: " + guest.phoneNumber;
+                        
+                    });
+                    xhr.open("GET", `https://w9yhsqyg5c.execute-api.us-east-2.amazonaws.com/hotel/${guestId}`);
+                    xhr.send();
+                }
+
 
                 function deleteGuest() {
                     let xhr = new XMLHttpRequest();
@@ -39,7 +76,12 @@
                     xhr.onload = function () {
                         if (xhr.status === 200 || xhr.status === 204) {
                             alert("Guest deleted!");
-                            window.location.href = `list.html?pageTitle=${previousTitle}`;
+                            if(previousTitle === "dashboard") {
+                                window.location.href = "dashboard.html"
+                            } else {
+                                window.location.href = `list.html?pageTitle=${previousTitle}`;
+                            }
+                            
                         } else {
                             alert("Failed to delete guest.");
                         }
