@@ -24,8 +24,26 @@
     I would like to be able to arrange room charges and create an invoice that can be sent out to the guest.</p>
 
   <h2>Additional Features</h2>
-  <p>As I said, I would like to make sure that I can get the check-in and check-out feature to work. If I am able to, I want to add the bulk checkout feature, a feature to create a personalized invoice, and a search
-    feature.</p>
+  <p>As I said, I would like to make sure that I can get the check-in and check-out feature to work. If I am able to, I want to add the bulk checkout feature, a feature to create a personalized invoice, and a search feature.</p>
 
 <h2>Website Wireframe</h2>
 <img src="webdesign.png" alt="wireframe">
+
+<h2>Overview of Finished Project</h2>
+<p>The finished project consists of the following files:</p>
+<h3>HTML</h3>
+<li>dashboard.html</li>
+<li>list.html</li>
+<li>staycard.html</li>
+<li>newReservation.html</li>
+<h3>CSS</h3>
+<li>dashboard.css</li>
+<li>list.css</li>
+<li>staycard.css</li>
+<li>newReservation.css</li>
+<br></br>
+<p>The project is meant to be ran from the dashboard.html file, which is the landing page of my website. While unfortunately I was unable to add functionality of all the elements on the front page due to time constraints, I was able to add functionality to the new reservation button and the arrivals button. While the arrivals button doesn't function exactly as it is supposed to, it displays all reservations in the database.</P>
+<p> The "NEW" button will direct you to the newReservation.html page, and will allow you to put in the desired guest information. You can then hit the "Book" button to submit the data.</p>
+<p>Submitting a new booking will then bring you to the new guest's staycard, which is rendered using the staycard.html page. This will display the guest information in an easy-to-read format. It also had a "Delete Guest" button on the bottom of the page, which removes the guest from the database, and either takes you back to the dashboard if you had just made that new guest, or brings you back to the arrivals page.</p>
+<p>The final page is the arrivals page which is displayed by the list.html file. Currently all the buttons on the dashboard link to list.html and display all reservations, which is not the intended result but again, due to time constraints I couldn't finish that part of the project as I had planned. Currently list.html displays all reservations, which can be individaully clicked on to bring up that guest's staycard, or the "Dashboard" button can be clicked to bring you back to the dashboard.</p>
+<p>All the Javascript code was written as scripts on the html files, and each css file corresponds to the html file with the matching name.</p>
