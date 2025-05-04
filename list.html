@@ -83,7 +83,7 @@
 
                         // Link to staycard.html with a unique guest ID
                         button.onclick = function () {
-                            window.location.href = `staycard.html?resNumber=${encodeURIComponent(guest.resNumber)}`;
+                            window.location.href = `staycard.html?resNumber=${encodeURIComponent(guest.resNumber)}&previousPage=${encodeURIComponent(title)}`;
                         };
 
                         container.appendChild(button);

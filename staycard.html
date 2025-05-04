@@ -25,7 +25,9 @@
             
             <script>
 
-                const guestId = new URLSearchParams(window.location.search).get("resNumber");
+                const urlParams = new URLSearchParams(window.location.search);
+                const guestId = urlParams.get("resNumber");
+                const previousTitle = urlParams.get("previousPage");
 
 
                 function deleteGuest() {
@@ -37,7 +39,7 @@
                     xhr.onload = function () {
                         if (xhr.status === 200 || xhr.status === 204) {
                             alert("Guest deleted!");
-                            history.back();
+                            window.location.href = `list.html?pageTitle=${previousTitle}`;
                         } else {
                             alert("Failed to delete guest.");
                         }
